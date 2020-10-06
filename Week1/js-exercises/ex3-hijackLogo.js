@@ -14,6 +14,17 @@
 
 function hijackGoogleLogo() {
   // your code goes in here
+  // finding the logo image
+  let CurrentLogo = document.getElementById('hplogo');
+  // finding the parent of the image
+  let logoContainer = CurrentLogo.parentElement;
+  // creating the image element to be the new logo
+  let newLogo = document.createElement('img');
+  newLogo.src = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
+  // removing the current logo
+  logoContainer.removeChild(CurrentLogo);
+  //appending the new logo
+  logoContainer.appendChild(newLogo);
 }
 
 hijackGoogleLogo();

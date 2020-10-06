@@ -1,0 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin: 5px;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
