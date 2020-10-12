@@ -26,16 +26,12 @@ function createBookList(books) {
     // creating a list element for each book
     let createdLi = document.createElement('li');
     // chaning the HTML content of each li elemnt according to the data we need
-    createdLi.innerHTML = ` <image src=${book.url} > <p> Title : ${book.title}  </p> <p> Author : ${
+    createdLi.innerHTML = ` <img src=${book.url} > <p> Title: ${book.title}  </p> <p> Author: ${
       book.author
     }  </p>  `;
     // checking if the key alreadyRead is true so we make the background of that element green, otherwise it will be red
-    if (book.alreadyRead) {
-      createdLi.style.backgroundColor = 'green';
-    } else {
-      createdLi.style.backgroundColor = 'red';
-    }
-
+    book.alreadyRead ? createdLi.style.backgroundColor = 'green' : createdLi.style.backgroundColor = 'red'
+  
     // last step, appending the created li elements to the ul element which we have declared
 
     createdUl.appendChild(createdLi);

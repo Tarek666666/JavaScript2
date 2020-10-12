@@ -19,9 +19,16 @@ const secHand = document.querySelector('.sec-hand');
 const timer = document.createElement('h1');
 const container = document.querySelector('.clock-container');
 
+ // styling the output
+ timer.style.marginTop = '500px';
+ timer.style.color = 'red';
+ timer.style.padding = '5px';
+ timer.style.background = 'yellow';
+
 // declaring updateTime function, to get the time in hours , minutes and secondes , and adding the animation to the clock's hand
 function updateTime() {
   // getting the information
+ 
   const timeNow = new Date();
   const minutes = timeNow.getMinutes();
   const seconds = timeNow.getSeconds();
@@ -38,24 +45,25 @@ function updateTime() {
   // changing the inner HTML of timer element to print the reslut
   timer.innerText = ` ${hours} : ${minutes} : ${seconds}   `;
   // checking if the seconds and minutes contain only 1 number so we add 0 to prevent getting something like 20:15:5
-  if (Array.from(seconds.toString())[1] === undefined) {
-    timer.innerText = ` ${hours} : ${minutes} : 0${seconds}   `;
-  } else if (Array.from(minutes.toString())[1] === undefined) {
-    timer.innerText = ` ${hours} : 0${minutes} : ${seconds}   `;
-  } else if (Array.from(hours.toString())[1] === undefined) {
-    timer.innerText = ` 0${hours} : ${minutes} : ${seconds}   `;
-  }
-  // styling the output
-  timer.style.marginTop = '500px';
-  timer.style.color = 'red';
-  timer.style.padding = '5px';
-  timer.style.background = 'yellow';
+  if (seconds.toString().length === 1) {
+    timer.innerText = ` ${hours} : ${minutes} : ${seconds.toString().padStart(2,0)}   `
+  }  if (minutes.toString().length === 1) {
+    timer.innerText = ` ${hours} : ${minutes.toString().padStart(2,0)} : ${seconds}   `;
+  } if (hours.toString().length === 1) {
+    timer.innerText = ` ${hours.toString().padStart(2,0)} : ${minutes} : ${seconds}   `;
+  } 
+ 
 
   container.appendChild(timer);
   // using setÍnterval function to update our function every 1 sec
-  setInterval(updateTime, 1000);
+  
 }
 
 // excuting the function updTime only when DomContent is Loaded
 
-window.addEventListener('DOMContentLoaded', updateTime);
+function settingInterval(){
+  setInterval(updateTime, 1000)
+
+}
+
+window.addEventListener('DOMContentLoaded', settingInterval );

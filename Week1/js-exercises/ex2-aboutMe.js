@@ -13,20 +13,20 @@
 //variables
 const body = document.querySelector('body');
 const nickName = document.getElementById('nickname');
-const FavoriteFood = document.getElementById('fav-food');
+const favoriteFood = document.getElementById('fav-food');
 const homeTown = document.getElementById('hometown');
-const allLists = document.querySelectorAll('ul li');
+const listItems = document.querySelectorAll('ul li');
 
 // DOM manipulation
 body.style.fontFamily = 'Arial, sans-serif';
 
 nickName.innerText = 'Tarek Aljabr';
-FavoriteFood.innerText = 'Fish';
+favoriteFood.innerText = 'Fish';
 homeTown.innerText = 'Syria';
 
 // iterating the list to add class 'list-item'
 
-allLists.forEach(x => (x.className = 'list-item'));
+listItems.forEach(item => (item.className = 'list-item'));
 
 // creating img element and append it to the page
 

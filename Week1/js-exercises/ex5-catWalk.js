@@ -12,8 +12,6 @@
  
 */
 
-
-
 // variabels
 const image = document.querySelector('img');
 const body = document.querySelector('body');
@@ -22,6 +20,7 @@ let startWalking = setInterval(catWalk, 50);
 image.style.transform = 'translateX(0px)';
 
 function catWalk() {
+    
   // everytime the function excutes it will move the image 10px to the right
   image.style.transform += 'translateX(10px)';
   // getting the length of the cat photo to add to the whole pixels to make sure that the cat will stay on the page
@@ -32,23 +31,18 @@ function catWalk() {
   let currentPosition = image.getBoundingClientRect().x;
   //getting the half of the whole width to make the cat dances when it reaches the middle of the page
   let middleOfPage = Math.floor((fullWidth - catWidth) / 2);
+    // checking if the current position of the cat + the cat lenght is greater than the body, then reset the translateX to 0, so its start from the begining
+    if (currentPosition + catWidth >= fullWidth) {
+        image.style.transform = 'translateX(0px)';
+        console.log('tes');
+      }
   // because we don't know exactly the width of the whole page, i made the condition in range of 10 pix + the middle of the page, in this way the condition will be
   // true only once every loop ..... (ps: i know there must be a better way but i spend already 2 days and couldn't find another solution,
   // i saw cats running and trying to kill me in my dreams :xD
   //i was super happy cause i could make it work   )
   // if there is a way to make this codition more specific and dynamic , i can't wait until i hear it.
-  if (
-    currentPosition == middleOfPage ||
-    currentPosition + 1 == middleOfPage ||
-    currentPosition + 2 == middleOfPage ||
-    currentPosition + 3 == middleOfPage ||
-    currentPosition + 4 == middleOfPage ||
-    currentPosition + 5 == middleOfPage ||
-    currentPosition + 6 == middleOfPage ||
-    currentPosition + 7 == middleOfPage ||
-    currentPosition + 8 == middleOfPage ||
-    currentPosition + 9 == middleOfPage
-  ) {
+
+  if (currentPosition >= middleOfPage && currentPosition <= middleOfPage + 10) {
     // changing the image from walking cat to a dancing cat
     image.src =
       'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424';
@@ -58,13 +52,8 @@ function catWalk() {
     setTimeout(walkAgain, 5000);
 
     function walkAgain() {
-      startWalking = setInterval(catWalk, 50);
-      image.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+        image.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif'
+        startWalking = setInterval(catWalk, 50);
     }
-  }
-
-  // checking if the current position of the cat + the cat lenght is greater than the body, then reset the translateX to 0, so its start from the begining
-  if (currentPosition + catWidth >= fullWidth) {
-    image.style.transform = 'translateX(0px)';
   }
 }
