@@ -11,12 +11,36 @@
 
  */
 
-
 function dayWorth(tasks, hourlyRate) {
   // put your code in here, the function does returns a euro formatted string
+  // using every method to make the condition to make sure that the objects in the array have property : duration && this property value's is a number !!
+  const isDuration = tasks.every(
+    task => task.hasOwnProperty('duration') === true && typeof task.duration === 'number',
+  );
+  // usuing the result of the every method
+  // if the objects in the arrays doesn't have property : duration  or the value of this property is not a nubmer === >log this in a message
+  if (!isDuration) {
+    return console.log(
+      'Objects in the array should have property : duration!!!    && the value of this property must be number!!!!  ',
+    );
+    // else if all the objects in the array have property : duration && the value of this property is a nubmer =====> do this :
+  } else {
+    // usuing map method to create an array includes all the duration of all tasks in one array;
+    const durationInMinutes = tasks.map(task => task.duration);
+    // using reduce method to get the total of all durations in the new array
+    const totalMinutesWorked = durationInMinutes.reduce((x, y) => x + y);
+    // to get the total hours, we divide the total minutes by 60 so we get how many worked  hours on monday then we multiply it by the hours rate !
+
+    const totalHours = totalMinutesWorked / 60;
+
+    let result = totalHours * hourlyRate;
+
+    return ` € ${result.toFixed(2)} `;
+  }
 }
 
-const mondayTasks = [{
+const mondayTasks = [
+  {
     name: 'Daily standup',
     duration: 30, // specified in minutes
   },
@@ -34,5 +58,5 @@ const mondayTasks = [{
   },
 ];
 
-console.log(dayWorth(mondayTasks, 25))
-console.log(dayWorth(mondayTasks, 13.37))
+console.log(dayWorth(mondayTasks, 25));
+console.log(dayWorth(mondayTasks, 13.37));

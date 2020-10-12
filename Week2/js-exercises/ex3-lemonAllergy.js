@@ -14,6 +14,13 @@
 
 function takeOutLemons(basket) {
   // your code goes in here. The output is a string 
+  // creating a new array includes all elements except Lemon . used toLowerCase method to exclude lemon with small letter also .
+  const filterdBasket  = basket.filter(fruit => fruit.toLowerCase() !== 'lemon')
+  // declaring the outputString variable and using join method to have spaces between the filterbasket array's elemnts.
+  let outputString = `My mom bought me a fruit basket, containing : ${filterdBasket.join(' ')}`
+
+  return outputString ;
+
 }
 
 const fruitBasket = ['Apple', 'Lemon', 'Grapefruit', 'Lemon', 'Banana', 'Watermelon', 'Lemon'];

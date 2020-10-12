@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Clock</title>
-</head>
+  <body>
+    <div id="app">
+      <h1>Pomodoro Clock</h1>
 
-<body>
-  <div id="app">
+      <p class="session-length">Session Length</p>
+      <div class="length-selectors-wrapper">
+        <button class="increase-length"><i class="fas fa-arrow-up"></i></button>
+        <p class="length-output">25</p>
 
-  </div>
-  <script src="index.js"></script>
-</body>
+        <button class="decrease-length"><i class="fas fa-arrow-down"></i></button>
+      </div>
+      <div class="timer-output-wrapper">
+        <p class="session">Session</p>
+        <p class="timer-output">25:00</p>
+      </div>
 
+      <div class="control-button-wrapper">
+        <button class="play"><i class="fas fa-play"></i></button>
+        <button class="pause"><i class="fas fa-pause"></i></button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>

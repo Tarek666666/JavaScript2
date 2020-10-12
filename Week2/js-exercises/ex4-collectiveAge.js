@@ -6,10 +6,17 @@
 
  Write a function that calculates the combined age of every member
  Avoid using for loop or forEach.
+ 
  */
 
 function collectiveAge(people) {
   // return the sum of age for all the people
+  // creating array includes all ages
+  const ages = people.map(x => x.age);
+  // using reduce  to get the total of all ages in the array 
+  let   totalAges = ages.reduce((x,y) => x + y , 0)
+
+  return totalAges;
 }
 
 const hackYourFutureMembers = [{
@@ -30,4 +37,4 @@ const hackYourFutureMembers = [{
   },
 ];
 
-console.log("The collective age of the HYF team is: " + collectiveMembers(hackYourFutureMembers));
+console.log("The collective age of the HYF team is: " + collectiveAge(hackYourFutureMembers));

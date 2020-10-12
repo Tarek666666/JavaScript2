@@ -17,5 +17,13 @@ function doubleEvenNumbers(numbers) {
   return newNumbers;
 }
 
-const myNumbers = [1, 2, 3, 4];
+const myNumbers = [1, 2, 3, 4 ];
 console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
+
+
+// we can use the filter method to get an array of all elements which fulfill the condition, then we use map method to modify those elements by multiply them by 2 !!
+
+
+const newNumbers2 = myNumbers.filter(num => num % 2 === 0).map(num => num * 2);
+
+console.log(newNumbers2)
