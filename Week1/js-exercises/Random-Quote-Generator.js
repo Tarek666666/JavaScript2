@@ -8,27 +8,27 @@ const writerOutput = document.querySelector('.writer');
 
 const listOfQuote = [
   {
-    quote: 'How many cares one loses when one decides not to be something but to be someone .',
-    writer: '-Gabrielle “Coco” Chanel',
+    quote: 'How many cares one loses when one decides not to be something but to be someone.',
+    writer: 'Gabrielle “Coco” Chanel',
   },
   {
     quote:
-      'Be who you are and say what you feel, because those who mind don’t matter and those who matter don’t mind .',
-    writer: '-Dr. Seuss',
+      'Be who you are and say what you feel, because those who mind don’t matter and those who matter don’t mind.',
+    writer: 'Dr. Seuss',
   },
   {
-    quote: 'Do your own thing on your own terms and get what you came here for .',
-    writer: '-Oliver James',
+    quote: 'Do your own thing on your own terms and get what you came here for.',
+    writer: 'Oliver James',
   },
   { quote: 'Flatter yourself critically .', writer: '-Willis Goth Regier' },
   {
-    quote: 'Do what you feel in your heart to be right, for you’ll be criticized anyway .',
-    writer: '-Eleanor Roosevelt',
+    quote: 'Do what you feel in your heart to be right, for you’ll be criticized anyway.',
+    writer: 'Eleanor Roosevelt',
   },
   {
     quote:
-      'Whenever you find yourself on the side of the majority, it is time to pause and reflect .',
-    writer: '-Mark Twain',
+      'Whenever you find yourself on the side of the majority, it is time to pause and reflect.',
+    writer: 'Mark Twain',
   },
 ];
 
