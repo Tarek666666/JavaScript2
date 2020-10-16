@@ -16,6 +16,7 @@ const timeSelected = document.querySelector('.length-output');
 const timerOutput = document.querySelector('.timer-output ');
 const play = document.querySelector('.play');
 const pause = document.querySelector('.pause');
+const stop = document.querySelector('.stop');
 let counting = false;
 // defualt timer's values
 let startingMinutes = parseInt(timeSelected.innerText);
@@ -32,7 +33,7 @@ function updateTimeSelected() {
   time = startingMinutes * 60;
   let minutes = Math.floor(time / 60);
   let sec = time % 60;
-  timerOutput.innerHTML = ` ${minutes}:${sec} `;
+  timerOutput.innerHTML = ` ${minutes.toString().padStart(2, 0)}:${sec.toString().padStart(2, 0)} `;
 }
 // this function will disable the buttons and give them red background color to let the user knows he can't use them while the counting is on
 function disableButtons() {
@@ -56,6 +57,7 @@ function enableButtons() {
 function addingMinute() {
   // this function adds one minute to the timer selector and updates the timer value
   timeSelected.innerText = parseInt(timeSelected.innerText) + 1;
+
   // after changing the selected time, we call updatetime function to update the timer.
   updateTimeSelected();
   // max minutes allowed is 50 if the users tried to select 50 or more it will reset to 25
@@ -68,6 +70,7 @@ function addingMinute() {
 function substractMinute() {
   // this function substract one minute from the time selector.
   timeSelected.innerText = parseInt(timeSelected.innerText) - 1;
+
   // after changing the selected time, we call updatetime function to update it
   updateTimeSelected();
   // minmum minutes allowed is 50 if the users tried to select 50 or more it will reset to 25
@@ -105,6 +108,17 @@ function playingAndUpdating() {
         clearInterval(starting);
         // making the buttons to increase and decrease time and play enabled again
         enableButtons();
+      });
+      // adding reset function
+      stop.addEventListener('click', function() {
+        counting = false;
+        clearInterval(starting);
+        // making the buttons to increase and decrease time and play enabled again
+        enableButtons();
+
+        timeSelected.innerText = `${startingMinutes}`;
+        timerOutput.innerHTML = `${startingMinutes}:00`;
+        updateTimeSelected();
       });
 
       // when timer ends and reachs 0 then it will print Time's Up message for 2 seconds then it will reset the timer to 25 !!
