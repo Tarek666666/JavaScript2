@@ -29,10 +29,40 @@ Don't you just love the thrill of the lottery? What if I told you we can make ou
 function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
   const numbers = [];
   // make array
+  for (let i = startIndex; i <= stopIndex; i++) {
+    numbers.push(i);
+  }
   // start at beginning of array and check if you should call threeCallback or fiveCallback or go on to next
+  // iterating over the array we just created
+  numbers.map(number => {
+    // if the number in array is divisible by 3 then call function threeCallback()
+    if (number % 3 === 0) {
+      threeCallback(number);
+    }
+    // if the number in array is divisible by 5 then call function fiveCallback()
+    if (number % 5 === 0) {
+      fiveCallback(number);
+    }
+    //if the number in array is divisible by 5 && divisible by 3  then call both functions threeCallback() && fiveCallback()
+    if (number % 5 === 0 && number % 3 === 0) {
+      fiveCallback(number);
+      threeCallback(number);
+    }
+  });
+}
+
+function sayThree(number) {
+  console.log(`${number} is divisible by 3 so sayThree() is called`);
+}
+function sayFive(number) {
+  console.log(`${number} is divisible by 5 so sayFive() is called`);
 }
 
 threeFive(10, 15, sayThree, sayFive);
 
 // Should create an array [10,11,12,13,14,15]
 // and call sayFive, sayThree, sayThree, sayFive
+
+// in my code if we made the array between 10 and 15, it will call sayFive , sayThree , sayThree , sayFive ===> then because of 15 is divisible by both 3 & 5
+// it will call both functions one more time so it will be
+// sayFive , sayThree ,sayThree , sayFive , sayFive , sayThree

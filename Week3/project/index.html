@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tip Calculator</title>
-</head>
+  </head>
 
-<body>
-  <div id="app"></div>
-  <script src="index.js"></script>
-</body>
+  <body>
+    <div id="app">
+      <h2>Tip Calculator</h2>
+      <form id='form' action="#">
+        <label>How Much was your bill ? </label>
+         <div> <span>$</span> <input type="text" class="bill-amount"/></div>
+        <label>How good was your service ? </label>
+        <select class="service-quality">
+          <optgroup label="----Satisfied----">
+            <option value="15">it was Oke - 15%</option> 
+            <option value="30">Outstanding - 30%</option>
+            <option value="20">Good - 20%</option>
+          </optgroup>
+          <option value="" selected disabled hidden>Choose here</option>
 
+          <optgroup label="----Bad Experince----">
+            <option value="10">Bad - 10%</option> 
+            <option value="5">Terrible - 5%</option>
+          </optgroup>
+        </select>
+
+        <label>How many people are sharing the bill ?</label>
+        <input type="text" class="people-amount"  />
+
+        <input type="submit" id='submit' value="Calculate" />
+      </form>
+
+      <div class="tip-output-container">
+        <p>TIP AMOUNT:</p>
+        <p class="tip-output">$$$</p>
+        <p class="amount-people-output">each</p>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>
