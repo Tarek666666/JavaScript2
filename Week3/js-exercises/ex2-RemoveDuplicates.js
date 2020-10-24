@@ -32,3 +32,16 @@ if (letters === ['a', 'b', 'c', 'd', 'e', 'f']) console.log('Hooray!');
 
 // printing the variable letters into the console to make sure that my function worked propely 
 console.log(letters);
+
+// another solution : this way we dont change the original array, instead we are returning a new array without the duplicates
+function removeDupicates2(array){
+
+let removedArray = new Set(array) ;
+
+return removedArray;
+
+};
+
+console.log(removeDupicates2(letters));
+
+

@@ -13,12 +13,12 @@ Call the function three times. The return values should be:
 function createBase(number) {
   // Put here your logic...
 
-  let result = number;
+  var number;
 
   return function() {
-    result += 9;
+    number += 9;
 
-    return result;
+    return number;
   };
 }
 

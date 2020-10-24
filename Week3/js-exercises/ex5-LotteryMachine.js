@@ -35,18 +35,20 @@ function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
   // start at beginning of array and check if you should call threeCallback or fiveCallback or go on to next
   // iterating over the array we just created
   numbers.map(number => {
-    // if the number in array is divisible by 3 then call function threeCallback()
-    if (number % 3 === 0) {
-      threeCallback(number);
-    }
-    // if the number in array is divisible by 5 then call function fiveCallback()
-    if (number % 5 === 0) {
-      fiveCallback(number);
-    }
-    //if the number in array is divisible by 5 && divisible by 3  then call both functions threeCallback() && fiveCallback()
+    //if the number in array is divisible by 5 && divisible by 3  then call both functions threeCallback() && fiveCallback() [once]
+
     if (number % 5 === 0 && number % 3 === 0) {
       fiveCallback(number);
       threeCallback(number);
+    }
+
+    // if the number in array is divisible by 3 then call function threeCallback()
+    else if (number % 3 === 0) {
+      threeCallback(number);
+    }
+    // if the number in array is divisible by 5 then call function fiveCallback()
+    else if (number % 5 === 0) {
+      fiveCallback(number);
     }
   });
 }

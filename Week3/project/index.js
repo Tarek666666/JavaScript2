@@ -23,8 +23,7 @@ function calculateTip() {
 
     // last condition is to check if amountPeople who are sharing the bill is only 1 then we remove the word each from the output other wise it will stay
     amountPeopleOutput.innerHTML = amountPeople.value > 1 ? 'each' : '';
-    // after printing the result we reset the values of the form
-    document.getElementById('form').reset();
+  
   } else {
     alert('First and last input accept only numbers !!!');
   }
